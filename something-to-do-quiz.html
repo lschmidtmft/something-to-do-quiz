@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1 Corinthians 12:7 Quiz</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; padding: 20px; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; }
+    h2 { color: #2a4d69; }
+    button { background-color: #2a4d69; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+    button:hover { background-color: #1c3550; }
+    #result { margin-top: 20px; font-weight: bold; font-size: 18px; color: #333; }
+  </style>
+</head>
+<body>
+  <h2>What’s Your “Something to Do”? – Based on 1 Corinthians 12:7</h2>
+  <p>Each person is given something to do that shows who God is. Discover what might be yours.</p>
+
+  <form id="quizForm">
+    <ol>
+      <li>
+        When you're part of a group, what role do you naturally take on?<br>
+        <input type="radio" name="q1" value="A"> A. The encourager who lifts others up<br>
+        <input type="radio" name="q1" value="B"> B. The organizer who makes things happen<br>
+        <input type="radio" name="q1" value="C"> C. The visionary who inspires fresh ideas<br>
+        <input type="radio" name="q1" value="D"> D. The listener who makes people feel heard
+      </li>
+      <li>
+        Which of these gives you the deepest sense of purpose?<br>
+        <input type="radio" name="q2" value="A"> A. Helping someone in crisis<br>
+        <input type="radio" name="q2" value="B"> B. Teaching or explaining a truth<br>
+        <input type="radio" name="q2" value="C"> C. Creating something beautiful or meaningful<br>
+        <input type="radio" name="q2" value="D"> D. Praying or interceding for others
+      </li>
+      <li>
+        People often come to you for:<br>
+        <input type="radio" name="q3" value="A"> A. Comfort and reassurance<br>
+        <input type="radio" name="q3" value="B"> B. Clear advice and practical help<br>
+        <input type="radio" name="q3" value="C"> C. Creative solutions or big-picture thinking<br>
+        <input type="radio" name="q3" value="D"> D. Spiritual insight or encouragement
+      </li>
+      <li>
+        When you read 1 Corinthians 12:7, what stands out to you most?<br>
+        <input type="radio" name="q4" value="A"> A. “Each person is given something”<br>
+        <input type="radio" name="q4" value="B"> B. “That shows who God is”<br>
+        <input type="radio" name="q4" value="C"> C. “Everyone gets in on it”<br>
+        <input type="radio" name="q4" value="D"> D. “Everyone benefits”
+      </li>
+      <li>
+        You most want to reflect God’s nature as:<br>
+        <input type="radio" name="q5" value="A"> A. Compassionate and healing<br>
+        <input type="radio" name="q5" value="B"> B. Wise and purposeful<br>
+        <input type="radio" name="q5" value="C"> C. Creative and powerful<br>
+        <input type="radio" name="q5" value="D"> D. Holy and deeply personal
+      </li>
+    </ol>
+    <button type="button" onclick="getResults()">See My Result</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function getResults() {
+      const form = document.getElementById('quizForm');
+      const questions = ['q1', 'q2', 'q3', 'q4', 'q5'];
+      const tally = { A: 0, B: 0, C: 0, D: 0 };
+
+      for (let q of questions) {
+        const radios = form[q];
+        for (let r of radios) {
+          if (r.checked) tally[r.value]++;
+        }
+      }
+
+      const top = Object.entries(tally).reduce((a, b) => a[1] > b[1] ? a : b)[0];
+      let message = '';
+
+      switch (top) {
+        case 'A':
+          message = 'Your “something to do” is Compassion – You reflect the heart of God by caring, comforting, and helping others heal.';
+          break;
+        case 'B':
+          message = 'Your “something to do” is Purpose – You show who God is through wisdom, action, and helping others thrive.';
+          break;
+        case 'C':
+          message = 'Your “something to do” is Creativity – You reflect God’s image by inspiring vision, beauty, and hope.';
+          break;
+        case 'D':
+          message = 'Your “something to do” is Connection – You help others experience the personal presence of God through prayer, empathy, and discernment.';
+          break;
+      }
+
+      document.getElementById('result').innerText = message;
+    }
+  </script>
+</body>
+</html>
